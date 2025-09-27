@@ -17,14 +17,14 @@
 
 	<mvc:resources mapping="/resources/**"
 		location="/resources/" />
-	<mvc:interceptors>
+<!-- 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/interceptor" />
 			<bean class="springmvc.controller.MyInterceptor"></bean>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> -->
 
-	<context:component-scan base-package="springmvc" />
+	<context:component-scan base-package="shoppyworld" />
 
 	<!-- ✅ Enable annotation-based controllers -->
 	<mvc:annotation-driven />
@@ -44,7 +44,7 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/springmvc" />
+			value="jdbc:mysql://localhost:3306/shoppyworld" />
 		<property name="username" value="root" />
 		<property name="password" value="root123" />
 	</bean>
@@ -62,7 +62,9 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>springmvc.model.User</value>
+				<value>shoppyworld.model.Product</value>
+				<value>shoppyworld.model.User</value>
+				<value>shoppyworld.model.Vendor</value>
 			</list>
 		</property>
 	</bean>
@@ -77,10 +79,10 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<bean id="multipartResolver"
+<!-- 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- Max upload size in bytes -->
-		<!-- <property name="maxUploadSize" value="5242880"/> --> <!-- 5MB -->
-	</bean>
+		Max upload size in bytes
+		<property name="maxUploadSize" value="5242880"/> 5MB
+	</bean> -->
 
 </beans>

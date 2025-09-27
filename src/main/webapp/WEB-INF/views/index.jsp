@@ -14,7 +14,7 @@
 	rel="stylesheet" type="text/css" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<meta http-equiv="refresh" content="2; url=index1.jsp" />
+<meta http-equiv="refresh" content="2; url=home" />
 <title></title>
 <style>
 #div1 {
