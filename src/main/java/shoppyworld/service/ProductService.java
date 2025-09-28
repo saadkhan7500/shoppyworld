@@ -23,4 +23,9 @@ public class ProductService {
 		return productDao.getAllProducts();
 	}
 
+
+	public int createProduct(Product product) {
+		return productDao.createProduct(product);
+	}
+
 }

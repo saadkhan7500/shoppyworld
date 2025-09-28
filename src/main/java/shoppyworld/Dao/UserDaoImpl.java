@@ -1,8 +1,6 @@
 package shoppyworld.Dao;
 
-import java.io.Serializable;
 import java.util.List;
-
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

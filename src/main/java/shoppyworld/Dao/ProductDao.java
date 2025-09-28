@@ -9,4 +9,8 @@ public interface ProductDao {
 	public List<Product> getAllProducts();
 	
 	public Product getProductById(int productIds);
+	
+	public List<Product> getProductByEmail(String email);
+
+	public int createProduct(Product product);
 }

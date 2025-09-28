@@ -6,4 +6,6 @@ public interface VendorDao {
 	
 	public int createVendor(Vendor vendor);
 
+	public Vendor getVendorByEmailAndPassword(String email, String password);
+
 }

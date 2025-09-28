@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import shoppyworld.model.Product;
@@ -42,6 +43,23 @@ public class ProductContoller {
 		model.addAttribute("products", products);
 		System.out.println(products);
 		return "home";
+	}
+	
+	@RequestMapping("/addProduct")
+	public String addProduct() {
+		System.out.println("heyyyyy there");
+		return "addProduct";
+	}
+	
+	@RequestMapping("/createProduct")
+	public String createProduct(@ModelAttribute Product product) {
+		  product.setP_i_path("images/card1.jpeg");
+		  product.setP_i_name(null);
+		  product.setProduct_status("pending");
+		  product.setProduct_order("pending");
+		  productService.createProduct(product);
+		System.out.println(product);
+		return "addProduct";
 	}
 
 }
