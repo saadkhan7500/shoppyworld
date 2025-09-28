@@ -65,6 +65,8 @@
 				<value>shoppyworld.model.Product</value>
 				<value>shoppyworld.model.User</value>
 				<value>shoppyworld.model.Vendor</value>
+				<value>shoppyworld.model.Cart</value>
+				<value>shoppyworld.model.Purchase</value>
 			</list>
 		</property>
 	</bean>

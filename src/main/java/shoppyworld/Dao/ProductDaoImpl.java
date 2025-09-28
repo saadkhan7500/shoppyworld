@@ -22,5 +22,16 @@ public class ProductDaoImpl implements ProductDao{
 	public List<Product> getAllProducts() {
 		return hibernateTemplate.loadAll(Product.class);
 	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	public Product getProductById(int productId) {
+	    String hql = "FROM Product WHERE id = :id";
+	    List<Product> products = (List<Product>) hibernateTemplate.findByNamedParam(
+	        hql,
+	        new String[] { "id" },
+	        new Object[] { productId }
+	    );
+	    return products.isEmpty() ? null : products.get(0);
+	}
 
 }

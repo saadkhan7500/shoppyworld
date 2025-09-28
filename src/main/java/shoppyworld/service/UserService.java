@@ -20,4 +20,14 @@ public class UserService {
 		return userDao.createUser(user);
 	}
 
+	public User findByEmailAndPassword(String email, String password) {
+		
+		User user = userDao.getUserByEmailAndPassword(email, password);
+		if(user == null) {
+			return null;
+		}
+		return user;
+		
+	}
+
 }

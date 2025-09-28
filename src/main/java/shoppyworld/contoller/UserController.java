@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import shoppyworld.model.User;
 import shoppyworld.service.UserService;
@@ -32,6 +33,17 @@ public class UserController {
 		if(id!=0)
 			model.addAttribute("msg", "success");
 		return "userSignUp";
+	}
+	
+	@RequestMapping(path = "/userLogin", method = RequestMethod.POST)
+	public String userLogin(@RequestParam String email , @RequestParam String password ,Model model) {
+		System.out.println(email+" ==== "+password);
+		User user = userService.findByEmailAndPassword(email, password);
+		if(user != null) {
+			model.addAttribute("user", user);
+			return "userDashboard";
+		}
+		return "home";
 	}
 
 }

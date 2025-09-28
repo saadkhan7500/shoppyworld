@@ -1,15 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/gliphicon.css">
-<link href="/bootstrap4-glyphicons/css/bootstrap-glyphicons.min.css"
-	rel="stylesheet" type="text/css" />
+<!-- Required meta tags -->
+<meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -18,64 +18,76 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="css/demo.css">
+
 <title>OnLine Shopping Site</title>
 <style>
 @media only screen and (max-width: 600px) {
 	#p_img {
-		width: 70%;
-		height: 95%;
-		margin-left: 10%;
-	}
-	#form {
-		width: 80%;
-		height: 95%;
+		width: 60%;
+		height: 60%;
 		margin-left: 10%;
 	}
 }
 </style>
 </head>
+<%--  <%!
+   String name;
+   %>
+   <%
+   HttpSession s=request.getSession();
+   name=(String)s.getAttribute("name");
+  
+   
+   %> --%>
+
+
 
 <body>
 	<!-- Navbar starts here -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-		<a class="btn btn-outline-danger" href="index1.jsp"><i
-			style="font-size: 26px" class="fab fa-speakap"></i> Shoppy World</a>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+		<a class="btn btn-outline-danger" href="index1.jsp">Shoppe World</a> <a
+			class="btn btn-outline-info" href="profile2.jsp"> ${user.name} </a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="home"><span class="glyphicon glyphicon-home"
-						aria-hidden="true"></span> Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="about"><span
-						class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-						About us</a></li>
-				<li class="nav-item"><a class="nav-link" href="contact"><span
-						class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
-						Contact us</a></li>
+					href="index1.jsp">Home <span class="sr-only">(current)</span></a></li>
+				<li class="nav-item"><a class="nav-link" href="about.jsp">About
+						us</a></li>
+				<li class="nav-item"><a class="nav-link" href="contact.jsp">Contact
+						us</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Category </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="search.jsp?search=all">All</a> <a
-							class="dropdown-item" href="search.jsp?search=mobile">Mobile</a>
-						<a class="dropdown-item" href="search.jsp?search=electronic">Electronic</a>
-						<a class="dropdown-item" href="search.jsp?search=womens wear">Womens
-							wear</a> <a class="dropdown-item" href="search.jsp?search=kids">Kids
-							wear</a>
+						<a class="dropdown-item" href="#">Mobile</a> <a
+							class="dropdown-item" href="#">Electronic</a> <a
+							class="dropdown-item" href="#">Womens wear</a> <a
+							class="dropdown-item" href="#">Kids wear</a>
+
+
 						<div class="dropdown-divider">Mens wear</div>
 
+						<a class="dropdown-item" href="#">Something else here</a>
 					</div></li>
+				<li class="nav-item"><a class="nav-link" href="session_out.jsp">Logout</a>
+				</li>
 				<li class="nav-item">
-					<button type="button" class="btn btn-primary" data-toggle="modal"
-						data-target="#exampleModal">Login & SignUp</button> <!-- Modal -->
+					<h6 class="nav-link text text-success">Users Area</h6>
+				</li>
+				</li>
+				<li class="nav-item"></li>
+
+				<li class="nav-item">
+					<!-- Modal -->
 					<div class="modal fade" id="exampleModal" tabindex="-1"
 						role="dialog" aria-labelledby="exampleModalLabel"
 						aria-hidden="true">
@@ -106,13 +118,12 @@
 											<div class="col-sm-2"></div>
 											<div class="col-sm-8">
 												<center>
-													<h4>Select your category must</h4>
+													<h4>Admin Login</h4>
 												</center>
-												<form action="login" method="post">
+												<form action="check_admin.jsp">
 													<label>Email:</label> <input type="Email"
-														class="form-control" name="email" required> <label>Password:</label>
-													<input type="password" class="form-control" name="password"
-														required>
+														class="form-control" name="email"> <label>Password:</label>
+													<input type="password" class="form-control" name="pass">
 													<div class="form-check">
 														<br> <label class="form-check-label"> <input
 															class="form-check-input" type="checkbox">
@@ -125,9 +136,12 @@
 
 														</select><br> <br>
 													</div>
-													<input type="submit" class="btn btn-primary" value="Login">
-													<a href="vendorSignUp" class="btn btn-outline-primary">VenSignUp</a>
-													<a href="userSignUp" class="btn btn-outline-primary">UserSignUp</a>
+													<input type="submit" class="btn btn-primary" value="Login"><a
+														href="vensignup1.jsp" class="btn btn-outline-primary">VenSignUp</a><a
+														href="usersignup.jsp" class="btn btn-outline-primary">UserSignUp</a>
+
+
+
 												</form>
 											</div>
 											<div class="col-sm-2"></div>
@@ -139,7 +153,8 @@
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
 											data-dismiss="modal">Close</button>
-
+										<input type="submit" class="btn btn-outline-default"
+											value="login"></input>
 									</div>
 									</form>
 								</div>
@@ -147,13 +162,73 @@
 						</div>
 				</li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0" action="search.jsp">
-				<input class="form-control mr-sm-2" type="search" name="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
+
 
 		</div>
 	</nav>
+	<%-- <%
+if(name==null)
+{
+	response.sendRedirect("index1.jsp");
+}
+response.setHeader("pragma","no-cache");
+response.setHeader("cache-control","no-store");
+response.setHeader("Expires","0");
+response.setDateHeader("Expires",-1);
+ %> --%>
 
 	<!-- Navbar ends here -->
+
+	<br>
+	<div style="background-color: #40E0D0" class="row jumbotron">
+		<div class="col-md-12">
+			<h1 style="color: #2F4F4F">Welcome! ${user.name}</h1>
+			<p>We provide you to best and pure deals on your branded
+				products.. The price you mention for your product is directly seen
+				by the user who visit our website for shopping. So please enter the
+				valid Price for your Product</p>
+		</div>
+
+	</div>
+	<div class="row">
+
+		<div class="col-md-2">
+			<div id="p_img">
+				<a class="btn btn-warning" href="cartProducts?userId=${user.id}"> <img
+					style="width: 70%"
+					src="${pageContext.request.contextPath}/resources/images/cart.png">
+					<br>My cart
+
+				</a>
+			</div>
+			<br>
+		</div>
+
+		<div class="col-md-2">
+			<div id="p_img">
+				<a class="btn btn-warning" href="purchaseProducts?userEmail=${user.email}"> <img
+					style="width: 70%"
+					src="${pageContext.request.contextPath}/resources/images/purchased.png">
+					<br>My purchased Products
+
+				</a>
+			</div>
+		</div>
+
+
+
+
+
+
+		<div class="col-md-2"></div>
+
+		<div class="col-md-2"></div>
+
+		<div class="col-md-2"></div>
+
+		<div class="col-md-2"></div>
+
+
+	</div>
+
+	<%@ include file="footer.jsp"%>
