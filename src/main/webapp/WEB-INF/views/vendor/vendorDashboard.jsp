@@ -1,5 +1,5 @@
 
-<%@ include file="header1.jsp"%>
+<%@ include file="../general/header1.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Navbar ends here -->
 
@@ -56,4 +56,4 @@
 		</div>
 	</div>
 </div>
-<%@ include file="footer.jsp"%>
+<%@ include file="../general/footer.jsp"%>

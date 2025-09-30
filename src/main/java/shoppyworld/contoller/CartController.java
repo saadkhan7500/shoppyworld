@@ -26,7 +26,7 @@ public class CartController {
 		System.out.println("hellooooo");
 		List<Product> productsInUserCart = cartService.getProductsInUserCart(userId);
 		model.addAttribute("products", productsInUserCart);
-		return "cartProduct";
+		return "user/cartProduct";
 	}
 
 }

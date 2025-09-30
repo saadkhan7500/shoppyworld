@@ -23,7 +23,7 @@ public class UserController {
 
 	@RequestMapping("/userSignUp")
 	public String userSignUp() {
-		return "userSignUp";
+		return "user/userSignUp";
 	}
 	
 	@RequestMapping(path = "/createUser", method = RequestMethod.POST)
@@ -32,7 +32,7 @@ public class UserController {
 		int id = userService.createUser(user);
 		if(id!=0)
 			model.addAttribute("msg", "success");
-		return "userSignUp";
+		return "user/userSignUp";
 	}
 	
 	@RequestMapping(path = "/userLogin", method = RequestMethod.POST)
@@ -41,9 +41,9 @@ public class UserController {
 		User user = userService.findByEmailAndPassword(email, password);
 		if(user != null) {
 			model.addAttribute("user", user);
-			return "userDashboard";
+			return "user/userDashboard";
 		}
-		return "home";
+		return "general/home";
 	}
 
 }

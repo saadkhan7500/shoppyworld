@@ -291,4 +291,4 @@
 </body>
 </html>
 
-<%@ include file="footer.jsp"%>
+<%@ include file="../general/footer.jsp"%>

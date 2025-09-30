@@ -23,10 +23,9 @@ public class PurchaseController {
 
 	@RequestMapping(path= "/purchaseProducts", method = RequestMethod.GET)
 	public String getCartProducts(@RequestParam("userEmail") String userEmail, Model model) {
-		System.out.println("hellooooo");
 		List<Product> productsInUserCart = purchaseService.getProductsInUserCart(userEmail);
 		model.addAttribute("products", productsInUserCart);
-		return "purchaseProduct";
+		return "user/purchaseProduct";
 	}
 
 }

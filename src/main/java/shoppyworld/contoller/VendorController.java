@@ -33,7 +33,7 @@ public class VendorController {
 
 	@RequestMapping("/vendorSignUp")
 	public String vendorSignUp() {
-		return "vendorSignUp";
+		return "vendor/vendorSignUp";
 	}
 
 	@RequestMapping(path = "/createVendor", method = RequestMethod.POST)
@@ -43,7 +43,7 @@ public class VendorController {
 			model.addAttribute("msg", "success");
 		else
 			model.addAttribute("msg", "fail");
-		return "vendorSignUp";
+		return "vendor/vendorSignUp";
 	}
 
 	@RequestMapping(path = "/vendorLogin", method = RequestMethod.POST)
@@ -53,22 +53,22 @@ public class VendorController {
 			model.addAttribute("vendor", vendor);
 			List<Product> products = vendorService.getProductByEmail(email);
 			model.addAttribute("products", products);
-			return "vendorDashboard";
+			return "vendor/vendorDashboard";
 		}
-		return "home";
+		return "general/home";
 	}
 
 	@RequestMapping(path = "/vendorProduct", method = RequestMethod.GET)
 	public String vendorProduct(@RequestParam String email, Model model) {
 		List<Product> products = vendorService.getProductByEmail(email);
 		model.addAttribute("products", products);
-		return "vendorProduct";
+		return "vendor/vendorProduct";
 	}
 
 	@RequestMapping(path = "/uploadProductImage", method = RequestMethod.GET)
 	public String uploadProductImage(@RequestParam("id") int productId, Model model) {
 		model.addAttribute("productId", productId);
-		return "uploadProductImage";
+		return "vendor/uploadProductImage";
 	}
 
 	@RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
@@ -98,7 +98,7 @@ public class VendorController {
 			System.out.println(e);
 		}
 
-		return "vendorProduct";
+		return "vendor/vendorProduct";
 	}
 	
 	@RequestMapping(path = "/vendorToBeDeliverProduct", method = RequestMethod.GET)
@@ -107,7 +107,7 @@ public class VendorController {
 		model.addAttribute("purchases", purchases);
 		
 		System.out.println("purchases ===== "+purchases);
-		return "vendorToBeDeliverProduct";
+		return "vendor/vendorToBeDeliverProduct";
 	}
 
 }

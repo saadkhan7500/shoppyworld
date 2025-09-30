@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,13 +31,33 @@
 }
 </style>
 </head>
+<%--  <%!
+   String name;
+ String id;
+ ResultSet rs1,rs;
+ Connection con;
+ Statement stmt;
+ String email;
+   %>
+   <%
+   HttpSession s=request.getSession();
+   name=(String)s.getAttribute("name");
+   id=(String)s.getAttribute("id");
+   email=(String)s.getAttribute("email");
+   out.println(email);
+   
+   %> --%>
+
+
 
 <body class="bg-info">
 	<!-- Navbar starts here -->
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
 		<a class="btn btn-outline-danger" href="index1.jsp">Shoppe World</a> <a
-			class="btn btn-outline-info" href="profile2.jsp">${user.name}</a>
+			class="btn btn-outline-info" href="profile2.jsp">
+			<%-- <%=name %> --%>
+		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -91,6 +111,18 @@
 									</button>
 								</div>
 								<div class="modal-body">
+
+									<!-- Loginform body starts here -->
+
+									<%
+									String msg = request.getParameter("msg");
+									if (msg != null) {
+										out.println("<html><body>");
+										out.println("<center><font color=green size=5 text-align=center>" + msg);
+										out.println("</font></center>");
+										out.println("</body></html>");
+									}
+									%>
 									<div class="container">
 										<div class="row">
 											<div class="col-sm-2"></div>
@@ -140,7 +172,12 @@
 							</div>
 						</div>
 				</li>
+
+
+
 			</ul>
+
+
 		</div>
 	</nav>
 	<%-- <%
@@ -153,6 +190,21 @@ response.setHeader("cache-control","no-store");
 response.setHeader("Expires","0");
 response.setDateHeader("Expires",-1);
  %> --%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- Navbar ends here -->
 	<br>
 	<br>
@@ -165,13 +217,14 @@ response.setDateHeader("Expires",-1);
 		Class.forName("com.mysql.jdbc.Driver");
 		
 		
+		
 		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sys","root","mysql");
 		
 		
 		stmt=con.createStatement();
 		
 		
-		 rs=stmt.executeQuery("select product_id from sw_carts where user_id="+id+" and product_id != 'null'");
+		 rs=stmt.executeQuery("select product_id from purchase where user_email='"+email+"'");
 		
 		
 		while(rs.next())
@@ -191,28 +244,46 @@ response.setDateHeader("Expires",-1);
 			<c:forEach var="product" items="${products}">
 				<div class="col-md-2">
 					<div id="p_img" class="card">
-						<span style="background-color: #D8D6D4"
-							class="badge badge-default">
-							<h6>${product.discount}%off
-							</h6>
-						</span> <img src="${pageContext.request.contextPath}/resources/images/${product.p_i_name}"
+
+						<img
+							src="${pageContext.request.contextPath}/resources/images/${product.p_i_name}"
 							class="img-fluid img-thumbnail" alt="Responsive image">
 
 						<div class="card-body">
-							<h6>
-								Rs.${product.product_price}</h6>
+							<h6>Rs.${product.product_price}</h6>
 							<h6 class="card-title">${product.product_name}</h6>
 							<p class="card-text">${product.product_details}</p>
-							<a href="show_item.jsp?productId=${product.id}"
-								class="btn btn-success">Check Out</a>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
+
+
+			<%-- <%
+			}
+				
+		 }
+			
+	}
+	catch(Exception e)
+	{
+		out.println(e);
+	}
+
+
+   
+   
+   %> --%>
+
+
+
+
 		</div>
 	</div>
+
+
 
 	<br>
 	<br>
 	<br>
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../general/footer.jsp"%>

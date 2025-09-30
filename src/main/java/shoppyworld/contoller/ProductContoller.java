@@ -25,17 +25,17 @@ public class ProductContoller {
 
 	@RequestMapping("/")
 	public String index() {
-		return "index";
+		return "general/index";
 	}
 	
 	@RequestMapping("/about")
 	public String about() {
-		return "about";
+		return "general/about";
 	}
 	
 	@RequestMapping("/contact")
 	public String contact() {
-		return "contact";
+		return "general/contact";
 	}
 	
 	@RequestMapping("/home")
@@ -43,13 +43,12 @@ public class ProductContoller {
 		List<Product> products =productService.getAllProducts();
 		model.addAttribute("products", products);
 		System.out.println(products);
-		return "home";
+		return "general/home";
 	}
 	
 	@RequestMapping("/addProduct")
 	public String addProduct() {
-		System.out.println("heyyyyy there");
-		return "addProduct";
+		return "vendor/addProduct";
 	}
 	
 	@RequestMapping("/createProduct")
@@ -59,8 +58,7 @@ public class ProductContoller {
 		  product.setProduct_status("pending");
 		  product.setProduct_order("pending");
 		  productService.createProduct(product);
-		System.out.println(product);
-		return "addProduct";
+		return "vendor/addProduct";
 	}
 	
 	@RequestMapping("/checkoutProduct")
@@ -70,7 +68,7 @@ public class ProductContoller {
 		  
 		  model.addAttribute("product", product);
 		  model.addAttribute("relatedProducts", relatedProducts);
-		return "checkoutProduct";
+		return "general/checkoutProduct";
 	}
 
 }

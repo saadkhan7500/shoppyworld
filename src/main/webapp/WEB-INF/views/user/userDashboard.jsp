@@ -231,4 +231,4 @@ response.setDateHeader("Expires",-1);
 
 	</div>
 
-	<%@ include file="footer.jsp"%>
+	<%@ include file="../general/footer.jsp"%>
