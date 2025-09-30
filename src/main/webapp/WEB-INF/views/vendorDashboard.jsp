@@ -25,7 +25,7 @@
 	</div>
 	<div class="col-md-3">
 		<div id="p_img" class="thumbnail">
-			<a href="my_product.jsp"> <img style="width: 70%; height: 70%"
+			<a href="vendorProduct?email=${vendor.email}"> <img style="width: 70%; height: 70%"
 				src="${pageContext.request.contextPath}/resources/images/seshe.png">
 				<h4 class="btn btn-info">
 					My product <span style="font-size: 20px;"
@@ -49,7 +49,7 @@
 
 	<div class="col-md-3">
 		<div id="p_img" class="thumbnail">
-			<a href="deliver.jsp"> <img style="width: 70%; height: 70%"
+			<a href="vendorToBeDeliverProduct?email=${vendor.email}"> <img style="width: 70%; height: 70%"
 				src="${pageContext.request.contextPath}/resources/images/deliver.png">
 				<h4 class="btn btn-info">Item to be deliver</h4>
 			</a>

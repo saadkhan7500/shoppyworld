@@ -13,4 +13,10 @@ public interface ProductDao {
 	public List<Product> getProductByEmail(String email);
 
 	public int createProduct(Product product);
+
+	public void uploadProductImage(int productId, String originalFilename);
+
+	public List<Product> getProductByCategory(String product_category);
+
+
 }

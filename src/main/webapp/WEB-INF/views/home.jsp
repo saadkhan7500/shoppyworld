@@ -67,7 +67,7 @@
 						<h6>Rs.${product.product_price}</h6>
 						<h6 class="card-title">${product.product_name}</h6>
 						<p class="card-text">${product.product_details}</p>
-						<a href="show_item.jsp?id=${product.id}" class="btn btn-primary">Check
+						<a href="checkoutProduct?id=${product.id}" class="btn btn-primary">Check
 							Out</a>
 					</div>
 				</div>

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import shoppyworld.model.Product;
 import shoppyworld.service.ProductService;
@@ -60,6 +61,16 @@ public class ProductContoller {
 		  productService.createProduct(product);
 		System.out.println(product);
 		return "addProduct";
+	}
+	
+	@RequestMapping("/checkoutProduct")
+	public String checkoutProduct(@RequestParam int id, Model model) {
+		  Product product = productService.getProductById(id);
+		  List<Product> relatedProducts = productService.getProductByCategory(product.getProduct_category());
+		  
+		  model.addAttribute("product", product);
+		  model.addAttribute("relatedProducts", relatedProducts);
+		return "checkoutProduct";
 	}
 
 }

@@ -28,4 +28,17 @@ public class ProductService {
 		return productDao.createProduct(product);
 	}
 
+
+	public Product getProductById(int id) {	
+		
+		return productDao.getProductById(id);
+		
+	}
+
+
+	public List<Product> getProductByCategory(String product_category) {
+		
+		return productDao.getProductByCategory(product_category);
+	}
+
 }

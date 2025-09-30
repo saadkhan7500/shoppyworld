@@ -8,4 +8,6 @@ public interface PurchaseDao {
 
 	public List<Purchase> getPurchaseItemsByUserId(String userId);
 	
+	public List<Purchase> getPurchaseByEmailAndPurchase(String email);
+	
 }

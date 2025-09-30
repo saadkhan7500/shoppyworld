@@ -35,15 +35,37 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public List<Product> getProductByEmail(String email) {
 		String hql = "FROM Product where product_owner_email = :email";
-		List<Product> products = (List<Product>) hibernateTemplate.findByNamedParam(hql, new String[] {"email"},
-				new Object[] {email});
+		List<Product> products = (List<Product>) hibernateTemplate.findByNamedParam(hql, new String[] { "email" },
+				new Object[] { email });
 		return products;
 	}
 
 	@Transactional
 	@Override
 	public int createProduct(Product product) {
-		return (int)hibernateTemplate.save(product);
+		return (int) hibernateTemplate.save(product);
+	}
+
+	@Transactional
+	@Override
+	public void uploadProductImage(int productId, String originalFilename) {
+		Product product = hibernateTemplate.get(Product.class, productId);
+		if (product != null) {
+			product.setP_i_name(originalFilename);
+			hibernateTemplate.update(product);
+		} else {
+			// Log or throw an exception if product not found
+			throw new RuntimeException("Product with ID " + productId + " not found.");
+		}
+	}
+
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<Product> getProductByCategory(String product_category) {
+		String hql = "FROM Product WHERE product_category = :product_category";
+		List<Product> products = (List<Product>) hibernateTemplate.findByNamedParam(hql, new String[] { "product_category" },
+				new Object[] { product_category });
+		return products;
 	}
 
 }
