@@ -34,4 +34,9 @@ public class UserDaoImpl implements UserDao {
 	    return users.isEmpty() ? null : users.get(0);
 	}
 
+	@Override
+	public List<User> getAllUsers() {
+		return hibernateTemplate.loadAll(User.class);
+	}
+
 }

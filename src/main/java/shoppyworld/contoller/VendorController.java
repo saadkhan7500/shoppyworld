@@ -105,8 +105,6 @@ public class VendorController {
 	public String vendorToBeDeliverProduct(@RequestParam String email, Model model) {
 		List<Purchase> purchases = vendorService.getPurchaseByEmailAndStatus(email);
 		model.addAttribute("purchases", purchases);
-		
-		System.out.println("purchases ===== "+purchases);
 		return "vendor/vendorToBeDeliverProduct";
 	}
 

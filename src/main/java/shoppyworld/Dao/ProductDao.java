@@ -17,6 +17,8 @@ public interface ProductDao {
 	public void uploadProductImage(int productId, String originalFilename);
 
 	public List<Product> getProductByCategory(String product_category);
+	
+	public List<Product> getAllNewlyAddedProduct();
 
 
 }

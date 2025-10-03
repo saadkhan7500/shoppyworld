@@ -67,5 +67,13 @@ public class ProductDaoImpl implements ProductDao {
 				new Object[] { product_category });
 		return products;
 	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<Product> getAllNewlyAddedProduct() {
+	    String hql = "FROM Product WHERE product_status = 'pending'";
+	    List<Product> products = (List<Product>) hibernateTemplate.find(hql);
+	    return products;
+	}
 
 }

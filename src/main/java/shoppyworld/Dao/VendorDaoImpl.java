@@ -37,4 +37,9 @@ public class VendorDaoImpl implements VendorDao {
 	    return vendors.isEmpty() ? null : vendors.get(0);
 	}
 
+	@Override
+	public List<Vendor> getAllVendors() {
+		return hibernateTemplate.loadAll(Vendor.class);
+	}
+
 }
